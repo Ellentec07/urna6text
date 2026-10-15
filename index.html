@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Urna Eletrônica</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="container">
+    <section class="caixa-cpf" id="telaCPF">
+      <h1>URNA ELETRÔNICA</h1>
+      <h2>Identificação do eleitor</h2>
+      <label for="cpf">Digite seu cpf:</label>
+      <input id="cpf" type="text" inputmode="numeric"
+             maxlength="11" placeholder="11 números">
+      <button class="botao-cpf" onclick="entrarNaUrna()">
+        CONFIRMAR
+      </button>
+      <p id="mensagemCPF" class="mensagem"></p>
+    </section>
+
+    <section class="urna-container" id="telaUrna" hidden>
+      <div class="urna">
+        <section class="tela">
+          <h3>vote conciente</h3>
+          <p id="progresso">Cargo 1 de 6</p>
+          <h1 id="cargo">DEPUTADO FEDERAL</h1>
+
+          <p>Número:</p>
+          <div class="visor"><span id="numero"></span></div>
+
+          <div class="candidato">
+            <img id="foto" alt="Foto do candidato" hidden>
+            <div class="dados">
+              <h2 id="nome">Digite o número</h2>
+              <p id="partido"></p>
+            </div>
+          </div>
+
+          <p id="mensagem" class="mensagem" aria-live="polite"></p>
+          <p class="instrucoes">
+            Confira o nome e o partido antes de confirmar.
+          </p>
+        </section>
+
+        <section class="painel">
+          <div class="teclado">
+            <button onclick="digitarNumero('1')">1</button>
+            <button onclick="digitarNumero('2')">2</button>
+            <button onclick="digitarNumero('3')">3</button>
+            <button onclick="digitarNumero('4')">4</button>
+            <button onclick="digitarNumero('5')">5</button>
+            <button onclick="digitarNumero('6')">6</button>
+            <button onclick="digitarNumero('7')">7</button>
+            <button onclick="digitarNumero('8')">8</button>
+            <button onclick="digitarNumero('9')">9</button>
+            <span></span>
+            <button onclick="digitarNumero('0')">0</button>
+            <span></span>
+          </div>
+
+          <div class="acoes">
+            <button class="branco" onclick="votoBranco()">BRANCO</button>
+            <button class="corrige" onclick="corrigir()">CORRIGE</button>
+            <button class="confirma" onclick="confirmar()">CONFIRMA</button>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section id="telaFinal" class="caixa-cpf" hidden>
+      <h1>FIM</h1>
+      <p>Simulação de votação concluída!</p>
+      <p id="resumoFinal"></p>
+      <button class="botao-cpf" onclick="voltarInicio()">
+        VOLTAR AO INÍCIO
+      </button>
+    </section>
+  </main>
+</body>
+</html>
